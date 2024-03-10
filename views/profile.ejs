@@ -18,15 +18,29 @@
           <p class="tagline">Lorem ipsum dolor sit amet.</p>
           <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
           <a href="/logout" class="button btn btn-danger">Logout</a>
+          <hr>
+          <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="text" name="caption" placeholder="some caption">
+            <input type="file" name="file" id="">
+            <input type="submit" >
+          </form>
         </div>
     </div>
     <div class="container">
-        <div class="card" style="width: 18rem;">
-            <img src="https://imgs.search.brave.com/cyHx4fHhjMduEg4rwEq6hyChltbpy0mbmdnqj5rNOZk/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTMw/OTMyODgyMy9waG90/by9oZWFkc2hvdC1w/b3J0cmFpdC1vZi1z/bWlsaW5nLW1hbGUt/ZW1wbG95ZWUtaW4t/b2ZmaWNlLmpwZz9z/PTYxMng2MTImdz0w/Jms9MjAmYz1rUHZv/Qm02cUNZelFYTUFu/OUpVdHFMUkVYZTkt/UGxaeU1sOWktaWJh/VnVZPQ" class="card-img-top" alt="...">
+      <div class="cards flex">
+        <% user.posts.forEach(function(post){ %>
+          <div class="card" style="width: 18rem;">
+            <img src="/images/uploads/<%= post.image  %>" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
+              <h5 class="card-title"><%= post.imageText %></h5>
             </div>
+       <% }) %>
+        
+      </div>
           </div>
+    </div>
+
+      </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
